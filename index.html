@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Gerbang login: belum masuk -> arahkan ke masuk.html */
+    (function(){try{var id=sessionStorage.getItem("lumajang_session")||localStorage.getItem("lumajang_session");
+    var u=JSON.parse(localStorage.getItem("lumajang_users")||"[]");
+    if(!id||!u.some(function(x){return x.id===id}))location.replace("masuk.html")}catch(e){location.replace("masuk.html")}})();
+  </script>
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portal layanan dan informasi Kecamatan Lumajang">
+  <title>Kecamatan Lumajang | Portal Warga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="nav-shell">
+    <div class="container nav-inner">
+      <a href="#beranda" class="brand">
+        <div class="brand-symbol">L</div>
+        <div>
+          <strong>Kecamatan Lumajang</strong>
+          <span>Kabupaten Lumajang</span>
+        </div>
+      </a>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Buka navigasi">☰</button>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#beranda">Beranda</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#berita">Berita</a>
+        <a href="#lapor">Lapor</a>
+        <a href="#kontak">Kontak</a>
+        <button type="button" id="navAuth" class="nav-auth" aria-label="Buka akun saya"></button>
+        <a href="login.html" class="nav-admin">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <div class="live-badge"><span></span> Portal layanan warga</div>
+          <h1>Urus kebutuhan kecamatan tanpa bingung harus mulai dari mana.</h1>
+          <p class="hero-lead">
+            Cari persyaratan, cek alur layanan, baca pengumuman, buat laporan insiden,
+            dan pantau status laporan melalui satu portal yang sederhana dan mudah digunakan.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#layanan" class="btn btn-primary">Cari Layanan</a>
+            <a href="#lapor" class="btn btn-ghost">Laporkan Insiden</a>
+          </div>
+
+          <div class="mini-proof">
+            <div><strong>24/7</strong><span>Informasi dapat diakses</span></div>
+            <div><strong>1 portal</strong><span>Berita dan layanan</span></div>
+            <div><strong>Mobile</strong><span>Nyaman dari ponsel</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual lumajang-hero-art" aria-label="Ilustrasi ikon Lumajang">
+          <div class="topo-lines topo-a"></div>
+          <div class="topo-lines topo-b"></div>
+
+          <div class="iconic-scene">
+            <div class="scene-label">
+              <span>LUMAJANG</span>
+              <strong>Semeru • Air • Agrikultur</strong>
+            </div>
+
+            <svg class="semeru-svg" viewBox="0 0 720 520" role="img" aria-label="Ilustrasi Gunung Semeru dan air terjun">
+              <defs>
+                <linearGradient id="skyG" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#dff7f1"/>
+                  <stop offset="55%" stop-color="#dcebf8"/>
+                  <stop offset="100%" stop-color="#f7ead9"/>
+                </linearGradient>
+                <linearGradient id="mountG" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#315a58"/>
+                  <stop offset="100%" stop-color="#173d43"/>
+                </linearGradient>
+                <linearGradient id="mount2G" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#7aa49b"/>
+                  <stop offset="100%" stop-color="#527b75"/>
+                </linearGradient>
+                <linearGradient id="waterG" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#f8ffff"/>
+                  <stop offset="100%" stop-color="#72c7cf"/>
+                </linearGradient>
+              </defs>
+              <rect x="0" y="0" width="720" height="520" rx="42" fill="url(#skyG)"/>
+              <circle cx="570" cy="105" r="42" fill="#e48a57" opacity=".92"/>
+              <path d="M10 366 L190 220 L265 300 L385 98 L570 355 L710 420 L710 520 L10 520 Z" fill="url(#mount2G)"/>
+              <path d="M112 420 L385 98 L615 420 Z" fill="url(#mountG)"/>
+              <path d="M336 156 L385 98 L430 160 L403 154 L384 174 L365 153 Z" fill="#edf6f4"/>
+              <path d="M0 397 C130 360 250 406 352 380 C470 350 570 360 720 410 L720 520 L0 520 Z" fill="#1e514b"/>
+              <path d="M0 433 C110 405 230 438 335 422 C455 404 575 420 720 451 L720 520 L0 520 Z" fill="#143e3d"/>
+              <path d="M472 333 C495 318 528 315 554 328 C579 340 591 359 590 382 C588 409 571 430 542 438 C511 447 478 433 464 408 C448 378 452 346 472 333 Z" fill="#2e6f68"/>
+              <path d="M494 329 C500 356 500 383 495 414" stroke="url(#waterG)" stroke-width="11" stroke-linecap="round"/>
+              <path d="M516 325 C523 354 521 389 516 421" stroke="url(#waterG)" stroke-width="9" stroke-linecap="round"/>
+              <path d="M539 329 C548 360 544 386 541 411" stroke="url(#waterG)" stroke-width="8" stroke-linecap="round"/>
+              <path d="M562 339 C570 359 567 383 563 399" stroke="url(#waterG)" stroke-width="6" stroke-linecap="round"/>
+              <path d="M457 404 C490 390 538 392 579 411" stroke="#83d0c6" stroke-width="4" opacity=".7"/>
+              <path d="M32 345 C95 320 145 328 205 350" stroke="#f8f1dc" stroke-width="4" opacity=".45"/>
+            </svg>
+
+            <div class="scene-chip chip-a"><span>▲</span><div><small>Ikon alam</small><strong>Gunung Semeru</strong></div></div>
+            <div class="scene-chip chip-b"><span>≈</span><div><small>Wisata populer</small><strong>Tumpak Sewu</strong></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-strip">
+      <div class="container quick-strip-grid">
+        <a href="#syarat"><span>01</span><div><strong>Cek Persyaratan</strong><small>Sebelum datang ke kantor</small></div></a>
+        <a href="#formulir"><span>02</span><div><strong>Formulir Warga</strong><small>Siapkan dokumen lebih awal</small></div></a>
+        <a href="#cekstatus"><span>03</span><div><strong>Cek Status Laporan</strong><small>Masukkan nomor tiket</small></div></a>
+        <a href="#faq"><span>04</span><div><strong>Pertanyaan Umum</strong><small>Jawaban cepat untuk warga</small></div></a>
+      </div>
+    </section>
+
+    <section class="section" id="layanan">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Layanan warga</span>
+            <h2>Apa yang ingin Anda urus hari ini?</h2>
+          </div>
+          <p>Pilih kebutuhan Anda untuk melihat ringkasan persyaratan dan langkah awal yang perlu disiapkan.</p>
+        </div>
+
+        <div class="service-search-wrap">
+          <input id="serviceSearch" type="search" placeholder="Cari layanan, contoh: KTP, surat domisili, rekomendasi...">
+          <span>⌕</span>
+        </div>
+
+        <div class="service-grid" id="serviceGrid">
+          <article class="service-card" data-keywords="ktp kk kependudukan administrasi domisili">
+            <div class="service-icon">ID</div>
+            <div class="service-num">01</div>
+            <h3>Administrasi Kependudukan</h3>
+            <p>Panduan awal untuk KK, KTP, domisili, perubahan data, dan dokumen pendukung.</p>
+            <button data-service="Administrasi Kependudukan">Lihat detail <span>↗</span></button>
+          </article>
+          <article class="service-card" data-keywords="surat pengantar rt rw kelurahan rekomendasi">
+            <div class="service-icon">SR</div>
+            <div class="service-num">02</div>
+            <h3>Surat Pengantar</h3>
+            <p>Informasi dokumen dasar yang perlu disiapkan untuk berbagai surat pengantar.</p>
+            <button data-service="Surat Pengantar">Lihat detail <span>↗</span></button>
+          </article>
+          <article class="service-card" data-keywords="izin rekomendasi usaha kegiatan perizinan">
+            <div class="service-icon">IZ</div>
+            <div class="service-num">03</div>
+            <h3>Perizinan & Rekomendasi</h3>
+            <p>Panduan awal untuk kebutuhan rekomendasi kegiatan dan administrasi perizinan.</p>
+            <button data-service="Perizinan & Rekomendasi">Lihat detail <span>↗</span></button>
+          </article>
+          <article class="service-card" data-keywords="pengaduan keluhan insiden jalan fasilitas lingkungan">
+            <div class="service-icon">LP</div>
+            <div class="service-num">04</div>
+            <h3>Pengaduan Masyarakat</h3>
+            <p>Laporkan kerusakan fasilitas, jalan, lingkungan, ketertiban, dan masalah sosial.</p>
+            <a href="#lapor">Buat laporan <span>↗</span></a>
+          </article>
+          <article class="service-card" data-keywords="sktm sosial bantuan masyarakat">
+            <div class="service-icon">SO</div>
+            <div class="service-num">05</div>
+            <h3>Layanan Sosial</h3>
+            <p>Informasi awal terkait surat keterangan dan kebutuhan administrasi sosial masyarakat.</p>
+            <button data-service="Layanan Sosial">Lihat detail <span>↗</span></button>
+          </article>
+          <article class="service-card" data-keywords="jadwal kantor jam layanan antrean pelayanan">
+            <div class="service-icon">JM</div>
+            <div class="service-num">06</div>
+            <h3>Jam & Alur Pelayanan</h3>
+            <p>Lihat waktu pelayanan dan langkah yang perlu dilakukan ketika datang ke kantor kecamatan.</p>
+            <button data-service="Jam & Alur Pelayanan">Lihat detail <span>↗</span></button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section darker" id="syarat">
+      <div class="container info-layout">
+        <div class="info-copy">
+          <span class="eyebrow light">Sebelum datang</span>
+          <h2>Siapkan dokumen dari rumah.</h2>
+          <p>Warga dapat memeriksa daftar dokumen umum agar proses pelayanan di kantor lebih efisien.</p>
+          <div class="check-list">
+            <div><span>✓</span> Bawa identitas asli dan salinannya jika diperlukan.</div>
+            <div><span>✓</span> Siapkan surat pengantar RT/RW atau kelurahan jika menjadi syarat.</div>
+            <div><span>✓</span> Pastikan data pada dokumen konsisten.</div>
+            <div><span>✓</span> Simpan nomor kontak aktif untuk kebutuhan konfirmasi.</div>
+          </div>
+        </div>
+        <div class="document-panel">
+          <div class="doc-panel-top">
+            <span>Checklist warga</span>
+            <strong>Persiapan dokumen</strong>
+          </div>
+          <label><input type="checkbox"> KTP / Identitas</label>
+          <label><input type="checkbox"> Kartu Keluarga</label>
+          <label><input type="checkbox"> Surat pengantar</label>
+          <label><input type="checkbox"> Dokumen pendukung</label>
+          <label><input type="checkbox"> Nomor kontak aktif</label>
+          <div class="doc-note">Checklist tersimpan selama halaman masih dibuka.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="formulir">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Pusat formulir</span>
+            <h2>Formulir yang sering dibutuhkan warga.</h2>
+          </div>
+          <p>Contoh formulir berikut dapat diganti dengan file resmi milik kecamatan.</p>
+        </div>
+        <div class="download-grid">
+          <div class="download-card"><div class="file-icon">PDF</div><div><strong>Form Permohonan Umum</strong><small>Template layanan masyarakat</small></div><button onclick="demoDownload('Form Permohonan Umum')">Unduh</button></div>
+          <div class="download-card"><div class="file-icon">PDF</div><div><strong>Form Pengantar Administrasi</strong><small>Template dokumen pengantar</small></div><button onclick="demoDownload('Form Pengantar Administrasi')">Unduh</button></div>
+          <div class="download-card"><div class="file-icon">PDF</div><div><strong>Form Pengaduan Warga</strong><small>Template pengaduan tertulis</small></div><button onclick="demoDownload('Form Pengaduan Warga')">Unduh</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="berita">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Informasi terbaru</span>
+            <h2>Berita dan pengumuman.</h2>
+          </div>
+          <div class="news-controls">
+            <input id="newsSearch" type="search" placeholder="Cari berita...">
+            <select id="newsFilter">
+              <option value="semua">Semua kategori</option>
+              <option value="pelayanan">Pelayanan</option>
+              <option value="kegiatan">Kegiatan</option>
+              <option value="pengumuman">Pengumuman</option>
+            </select>
+          </div>
+        </div>
+        <div class="news-grid" id="newsGrid"></div>
+        <div id="newsEmpty" class="empty hidden">Berita tidak ditemukan.</div>
+      </div>
+    </section>
+
+    <section class="section report-section" id="lapor">
+      <div class="container report-layout">
+        <div class="report-copy">
+          <span class="eyebrow light">Pelaporan insiden</span>
+          <h2>Temukan masalah di lingkungan? Laporkan dari sini.</h2>
+          <p>Gunakan laporan untuk kerusakan jalan, fasilitas umum, lingkungan, gangguan ketertiban, dan kejadian lain yang perlu ditindaklanjuti.</p>
+
+          <div class="report-flow">
+            <div><span>1</span><div><strong>Isi laporan</strong><small>Jelaskan lokasi dan kronologi.</small></div></div>
+            <div><span>2</span><div><strong>Dapatkan tiket</strong><small>Sistem membuat nomor laporan.</small></div></div>
+            <div><span>3</span><div><strong>Pantau status</strong><small>Cek tiket kapan saja.</small></div></div>
+          </div>
+
+          <div class="status-box" id="cekstatus">
+            <span>Cek status laporan</span>
+            <div class="status-check-row">
+              <input id="ticketInput" autocomplete="off" placeholder="Contoh: LMG-2026-10421">
+              <button id="checkTicketBtn" type="button">Cek</button>
+            </div>
+            <p id="ticketResult"></p>
+
+            <div id="ticketActions" class="ticket-actions hidden">
+              <button id="copyTicketBtn" type="button">Salin kode</button>
+              <button id="whatsappTicketBtn" type="button">Simpan ke WhatsApp</button>
+            </div>
+
+            <div class="my-reports">
+              <div class="my-reports-head">
+                <strong>Laporan Saya</strong>
+                <small>Tiket terakhir yang tersimpan di browser ini</small>
+              </div>
+              <div id="myReportsList"></div>
+            </div>
+          </div>
+        </div>
+
+        <form id="incidentForm" class="report-form">
+          <div class="form-title">
+            <div>
+              <span class="eyebrow">Form laporan</span>
+              <h3>Data kejadian</h3>
+            </div>
+            <span class="secure-tag">Data lokal</span>
+          </div>
+
+          <div class="two-col">
+            <label>Nama pelapor<input id="reporterName" required placeholder="Nama lengkap"></label>
+            <label>No. WhatsApp<input id="reporterPhone" required placeholder="08xxxxxxxxxx"></label>
+          </div>
+          <label>Kategori
+            <select id="incidentCategory" required>
+              <option value="">Pilih kategori</option>
+              <option>Jalan & Infrastruktur</option>
+              <option>Lingkungan</option>
+              <option>Fasilitas Umum</option>
+              <option>Keamanan & Ketertiban</option>
+              <option>Sosial</option>
+              <option>Lainnya</option>
+            </select>
+          </label>
+          <label>Lokasi kejadian<input id="incidentLocation" required placeholder="Nama jalan / desa / kelurahan"></label>
+          <label>Kronologi<textarea id="incidentDescription" required rows="5" placeholder="Tuliskan kejadian secara jelas"></textarea></label>
+          <label>Urgensi
+            <select id="incidentPriority">
+              <option>Normal</option>
+              <option>Penting</option>
+              <option>Darurat</option>
+            </select>
+          </label>
+          <label class="consent"><input id="consent" type="checkbox" required><span>Saya menyatakan informasi yang diberikan benar.</span></label>
+          <button class="btn btn-primary full" type="submit">Kirim laporan</button>
+          <small class="form-footnote">Setelah laporan terkirim, Anda dapat menyalin kode atau menyimpannya ke WhatsApp agar tidak mudah hilang.</small>
+        </form>
+      </div>
+    </section>
+
+    
+    <section class="section lumajang-explore" id="jelajah">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Jelajah Lumajang</span>
+            <h2>Bukan hanya urusan administrasi.</h2>
+          </div>
+          <p>Portal warga juga dapat menjadi pintu masuk untuk mengenal potensi alam, kuliner, dan akses transportasi di Kabupaten Lumajang.</p>
+        </div>
+
+        <div class="explore-tabs">
+          <button class="explore-tab active" data-explore="wisata">Wisata</button>
+          <button class="explore-tab" data-explore="kuliner">Kuliner</button>
+          <button class="explore-tab" data-explore="transportasi">Transportasi</button>
+        </div>
+
+        <div class="explore-panel active" id="explore-wisata">
+          <div class="explore-feature waterfall-card">
+            <div class="feature-art mini-waterfall">
+              <span class="art-sun"></span><span class="art-cliff"></span><span class="art-water w1"></span><span class="art-water w2"></span><span class="art-water w3"></span>
+            </div>
+            <div><span class="micro-label">Pronojiwo</span><h3>Air Terjun Tumpak Sewu</h3><p>Destinasi air terjun yang menjadi salah satu ikon wisata Lumajang dan berada di kawasan Pronojiwo.</p></div>
+          </div>
+
+          <div class="explore-list">
+            <article><span class="place-number">01</span><div><small>Argosari</small><h4>Puncak B29</h4><p>Panorama dataran tinggi dan lanskap Bromo Tengger Semeru.</p></div></article>
+            <article><span class="place-number">02</span><div><small>Senduro</small><h4>Desa Wisata Ranupani</h4><p>Kawasan desa di kaki Semeru yang dikenal sebagai bagian dari lanskap Bromo Tengger Semeru.</p></div></article>
+            <article><span class="place-number">03</span><div><small>Pronojiwo</small><h4>Air Terjun Kapas Biru</h4><p>Wisata alam air terjun di kawasan selatan Lumajang.</p></div></article>
+            <article><span class="place-number">04</span><div><small>Senduro</small><h4>Ranu Regulo</h4><p>Danau pegunungan dengan suasana sejuk di kawasan Semeru.</p></div></article>
+          </div>
+        </div>
+
+        <div class="explore-panel" id="explore-kuliner">
+          <div class="culinary-grid">
+            <article class="food-card">
+              <div class="food-art food-green"><span>🍃</span></div>
+              <small>Kuliner lokal</small><h3>Sego Kelor</h3><p>Olahan nasi dengan unsur daun kelor yang dikenalkan sebagai makanan khas Lumajang.</p>
+            </article>
+            <article class="food-card">
+              <div class="food-art food-bamboo"><span>🥬</span></div>
+              <small>Kuliner lokal</small><h3>Krecek Rebung</h3><p>Salah satu kuliner yang dipromosikan dalam panduan wisata Lumajang.</p>
+            </article>
+            <article class="food-card">
+              <div class="food-art food-chili"><span>🌶</span></div>
+              <small>Kawasan Tengger</small><h3>Sambal Bawang Khas Tengger</h3><p>Pilihan rasa lokal yang terkait dengan kawasan budaya Tengger di Lumajang.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="explore-panel" id="explore-transportasi">
+          <div class="transport-map-card">
+            <div class="transport-route">
+              <span class="route-dot main"></span>
+              <span class="route-line"></span>
+              <span class="route-dot"></span>
+              <span class="route-line"></span>
+              <span class="route-dot"></span>
+            </div>
+            <div class="route-info">
+              <div><small>Hub utama</small><strong>Terminal Minak Koncar</strong><span>Jl. Raya Wonorejo, Lumajang</span></div>
+              <div><small>Kereta api</small><strong>Stasiun Klakah</strong><span>Akses rel penumpang di wilayah Kabupaten Lumajang</span></div>
+              <div><small>Terminal wilayah</small><strong>Sub Terminal</strong><span>Klakah, Pasirian, dan Pronojiwo</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="section" id="faq">
+      <div class="container faq-layout">
+        <div>
+          <span class="eyebrow">Pertanyaan umum</span>
+          <h2>Jawaban cepat untuk kebutuhan warga.</h2>
+          <p class="muted">Klik pertanyaan untuk melihat jawabannya.</p>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item"><button>Apa yang perlu dibawa saat mengurus administrasi?<span>+</span></button><div>Siapkan identitas, dokumen keluarga, surat pengantar jika diwajibkan, serta dokumen pendukung sesuai jenis layanan.</div></div>
+          <div class="faq-item"><button>Bagaimana cara mengetahui laporan sudah diproses?<span>+</span></button><div>Gunakan nomor tiket pada bagian “Cek Status Laporan”. Status akan berubah dari Baru, Diproses, atau Selesai.</div></div>
+          <div class="faq-item"><button>Apakah saya harus datang langsung ke kecamatan?<span>+</span></button><div>Tergantung jenis layanan. Portal ini membantu warga memeriksa informasi dan persyaratan sebelum datang.</div></div>
+          <div class="faq-item"><button>Bagaimana jika terjadi kondisi darurat?<span>+</span></button><div>Untuk kondisi yang mengancam keselamatan, gunakan layanan darurat resmi. Form laporan portal ditujukan untuk pencatatan dan tindak lanjut administratif.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="kontak">
+      <div class="container">
+        <div class="contact-banner">
+          <div>
+            <span class="eyebrow light">Butuh bantuan?</span>
+            <h2>Hubungi kantor kecamatan.</h2>
+            <p>Perbarui nomor, email, dan alamat berikut dengan data resmi sebelum website dipublikasikan.</p>
+          </div>
+          <div class="contact-actions">
+            <a href="tel:+62334000000">☎ Telepon</a>
+            <a href="mailto:kecamatanlumajang@example.go.id">✉ Email</a>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div><span>Alamat</span><strong>Kecamatan Lumajang, Kabupaten Lumajang, Jawa Timur</strong></div>
+          <div><span>Jam layanan</span><strong>Senin - Jumat, 08.00 - 15.00 WIB</strong></div>
+          <div><span>Email</span><strong>kecamatanlumajang@example.go.id</strong></div>
+          <div><span>Telepon</span><strong>(0334) 000000</strong></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="brand footer-brand">
+        <div class="brand-symbol">L</div>
+        <div><strong>Kecamatan Lumajang</strong><span>Kabupaten Lumajang</span></div>
+      </div>
+      <p>Portal informasi dan pelayanan warga.</p>
+      <small>© <span id="year"></span> Kecamatan Lumajang.</small>
+    </div>
+  </footer>
+
+  <button id="scrollTop" class="scroll-top" aria-label="Kembali ke atas">
+    <span>↑</span>
+    <small>Ke atas</small>
+  </button>
+
+  <div id="serviceModal" class="modal hidden">
+    <div class="modal-card">
+      <button id="modalClose" class="modal-close">×</button>
+      <span class="eyebrow">Informasi layanan</span>
+      <h3 id="modalTitle"></h3>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ===== V9: Modal akun warga (hanya tampil setelah login) ===== -->
+  <div id="accountModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="acctTitle">
+    <div class="modal-card auth-card account-card">
+      <button type="button" class="modal-close" data-close="accountModal" aria-label="Tutup">×</button>
+      <div class="acct-head"><div><h3 id="acctTitle">Akun saya</h3><p id="acctHello"></p></div></div>
+
+      <div class="acct-tabs" role="tablist">
+        <button type="button" role="tab" data-tab="profil" class="active" aria-selected="true">Profil</button>
+        <button type="button" role="tab" data-tab="antrean" aria-selected="false">Antrean</button>
+        <button type="button" role="tab" data-tab="tersimpan" aria-selected="false">Berita tersimpan</button>
+      </div>
+
+      <div class="acct-panel" data-tab="profil">
+        <form id="profileForm" novalidate>
+          <label>Nama lengkap<input id="acctName" required></label>
+          <label>Email<input id="acctEmail" readonly></label>
+          <label>No. WhatsApp<input id="acctPhone" type="tel" required></label>
+          <div id="profileMsg" class="auth-msg" role="status" aria-live="polite"></div>
+          <button class="btn btn-primary full" type="submit">Simpan profil</button>
+        </form>
+        <form id="passwordForm" class="acct-section" novalidate>
+          <h4>Ganti password</h4>
+          <label>Password saat ini<input id="curPw" type="password" autocomplete="current-password" required></label>
+          <label>Password baru<input id="newPw" type="password" autocomplete="new-password" required></label>
+          <label>Ulangi password baru<input id="newPw2" type="password" autocomplete="new-password" required></label>
+          <div id="passwordMsg" class="auth-msg" role="status" aria-live="polite"></div>
+          <button class="btn btn-primary full" type="submit">Ganti password</button>
+        </form>
+        <button type="button" id="logoutBtn" class="acct-logout">Keluar dari akun</button>
+      </div>
+
+      <div class="acct-panel hidden" data-tab="antrean">
+        <p class="auth-lead">Pilih jadwal kunjungan agar tidak menunggu lama. Kuota 5 orang per jam, Senin–Jumat.</p>
+        <form id="queueForm" novalidate>
+          <label>Layanan<select id="qService" required></select></label>
+          <div class="two-col">
+            <label>Tanggal<input id="qDate" type="date" required></label>
+            <label>Jam<select id="qTime" required></select></label>
+          </div>
+          <div id="queueMsg" class="auth-msg" role="status" aria-live="polite"></div>
+          <button class="btn btn-primary full" type="submit">Buat antrean</button>
+        </form>
+        <div id="queueList" class="acct-list"></div>
+      </div>
+
+      <div class="acct-panel hidden" data-tab="tersimpan">
+        <div id="bookmarkList" class="acct-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/auth-core.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Admin | Kecamatan Lumajang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="login-body">
+  <div class="login-page">
+    <div class="login-art">
+      <a href="index.html" class="brand login-brand">
+        <div class="brand-symbol">L</div>
+        <div><strong>Kecamatan Lumajang</strong><span>Kabupaten Lumajang</span></div>
+      </a>
+      <div class="login-art-content">
+        <span class="eyebrow light">Panel pengelola</span>
+        <h1>Kelola laporan warga dan publikasi dari satu dashboard.</h1>
+        <p>Halaman ini hanya untuk petugas atau administrator website.</p>
+      </div>
+      <div class="login-orbit orbit-one"></div>
+      <div class="login-orbit orbit-two"></div>
+    </div>
+
+    <div class="login-panel">
+      <form id="loginForm" class="login-card">
+        <a href="index.html" class="back-site">← Kembali ke website</a>
+        <span class="eyebrow">Login admin</span>
+        <h2>Masuk ke dashboard</h2>
+        <p>Gunakan akun demo di bawah untuk mencoba halaman admin.</p>
+
+        <label>Username
+          <input id="username" required autocomplete="username" placeholder="Masukkan username">
+        </label>
+        <label>Password
+          <div class="password-wrap">
+            <input id="password" type="password" required autocomplete="current-password" placeholder="Masukkan password">
+            <button type="button" id="togglePassword">Lihat</button>
+          </div>
+        </label>
+
+        <button class="btn btn-primary full" type="submit">Masuk</button>
+        <div id="loginError" class="login-error"></div>
+
+        <div class="demo-credential">
+          <span>Akun demo</span>
+          <code>admin</code>
+          <code>Lumajang123!</code>
+        </div>
+        <a class="back-site" href="masuk.html" style="margin:14px 0 0">Bukan petugas? Masuk sebagai warga</a>
+        <small class="security-note">Login ini hanya simulasi frontend. Untuk penggunaan produksi diperlukan autentikasi backend dan database.</small>
+      </form>
+    </div>
+  </div>
+  <script src="assets/js/login.js"></script>
+</body>
+</html>

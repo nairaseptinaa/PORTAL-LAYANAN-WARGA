@@ -1,0 +1,59 @@
+/* ===== V9 AKUN WARGA ===== */
+.nav-auth{display:inline-flex;align-items:center;gap:9px;border:1px solid #dfe6eb;background:#fff;border-radius:999px;padding:7px 16px 7px 8px;font-size:15px;font-weight:800;color:var(--lmj-forest,#173f3c);cursor:pointer}
+.nav-auth:not(:has(.nav-avatar)){padding:9px 20px;background:var(--lmj-forest,#173f3c);color:#fff;border-color:transparent}
+.nav-auth:hover{border-color:var(--lmj-volcanic,#df8050)}
+.nav-avatar{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--lmj-volcanic,#df8050);color:#fff;font-size:14px}
+.nav-auth:focus-visible,.auth-card :is(button,input,select):focus-visible,.bookmark-btn:focus-visible{outline:3px solid #56cfe1;outline-offset:2px}
+
+.auth-card{max-width:460px}.account-card{max-width:660px}
+.auth-card h3,.account-card h3{margin:4px 0 6px}
+.auth-lead{color:#667585;font-size:15px;margin:0 0 18px}
+.auth-tabs,.acct-tabs{display:flex;gap:6px;background:#f1f4f2;border-radius:14px;padding:5px;margin:6px 0 20px}
+.auth-tabs button,.acct-tabs button{flex:1;border:0;background:none;border-radius:10px;padding:11px 8px;font-size:15px;font-weight:800;color:#5b6b78;cursor:pointer}
+.auth-tabs button.active,.acct-tabs button.active{background:#fff;color:var(--lmj-forest,#173f3c);box-shadow:0 2px 8px rgba(16,32,51,.1)}
+
+.auth-view label,.acct-panel label{display:grid;gap:6px;font-size:14px;font-weight:800;margin-bottom:14px}
+.auth-view input,.auth-view select,.acct-panel input,.acct-panel select{width:100%;border:1px solid #d5dde3;background:#fbfcfd;border-radius:12px;padding:13px 14px;font-size:16px}
+.acct-panel input[readonly]{background:#eef2f1;color:#667585}
+.pw-wrap{position:relative}.pw-wrap input{padding-right:104px}
+.pw-toggle{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:#e9f3f0;color:var(--lmj-forest,#173f3c);border-radius:9px;padding:7px 10px;font-size:13px;font-weight:800;cursor:pointer}
+.auth-hint{font-size:13px;color:#7a8896;font-weight:600}
+.auth-check{grid-template-columns:auto 1fr!important;align-items:center;font-weight:600!important}
+.auth-check input{width:20px;height:20px;padding:0}
+.auth-msg{min-height:20px;font-size:14px;font-weight:700;margin:2px 0 10px}
+.auth-msg.err{color:#b42318}.auth-msg.ok{color:#17633f}
+.auth-links{display:flex;justify-content:space-between;gap:10px;margin-top:14px;flex-wrap:wrap}
+.auth-link{border:0;background:none;padding:4px 0;font-size:14px;font-weight:800;color:var(--lmj-teal,#2a7d77);text-decoration:underline;cursor:pointer}
+.auth-demo{background:#fff6e5;border:1px dashed #e0a43c;border-radius:12px;padding:12px 14px;font-size:15px;margin-bottom:14px}
+.auth-demo strong{font-size:22px;letter-spacing:.14em}
+.auth-note{display:block;margin-top:14px;font-size:13px;color:#8a96a2;line-height:1.5}
+
+.acct-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.acct-head p{margin:0;font-size:15px;color:#667585}
+.acct-section{border-top:1px solid #e6ebee;margin-top:20px;padding-top:18px}
+.acct-section h4{margin:0 0 12px;font-size:17px}
+.acct-list{display:grid;gap:10px;margin-top:16px}
+.acct-item{display:flex;align-items:center;gap:12px;border:1px solid #e3e9ec;border-radius:14px;padding:13px 14px}
+.acct-item>div{flex:1;min-width:0}.acct-item strong,.acct-item small{display:block}
+.acct-item strong{font-size:15px;overflow-wrap:anywhere}.acct-item small{font-size:14px;color:#667585}
+.acct-badge{font-size:13px;font-weight:800;border-radius:999px;padding:5px 11px;background:#edf1f4;color:#536574}
+.acct-badge.on{background:#dff6e9;color:#17633f}
+.acct-act{border:1px solid #e0c8c8;background:#fff5f5;color:#a22323;border-radius:10px;padding:8px 12px;font-size:14px;font-weight:800;cursor:pointer}
+.acct-empty{font-size:15px;color:#7e8b98;margin:6px 0}
+.acct-logout{margin-top:22px;width:100%;border:1px solid #e0c8c8;background:#fff;color:#a22323;border-radius:12px;padding:13px;font-size:15px;font-weight:800;cursor:pointer}
+
+.bookmark-btn{margin-top:12px;border:1px solid #d5dde3;background:#fff;color:#44566a;border-radius:10px;padding:8px 13px;font-size:14px;font-weight:800;cursor:pointer}
+.bookmark-btn.on{background:#fff2c9;border-color:#e8c45c;color:#7a5a00}
+.hidden{display:none!important}
+
+@media(max-width:680px){
+  .nav-auth{justify-content:center}
+  .acct-item{flex-wrap:wrap}.acct-tabs button{font-size:14px;padding:10px 4px}
+}
+
+/* Halaman masuk.html */
+.auth-page-card{width:min(480px,100%)!important}
+.login-panel{overflow-y:auto}
+.auth-page-card h2{margin:0 0 4px}
+.auth-staff{display:block;margin-top:16px;font-size:14px;font-weight:700;color:#667585;text-align:center;text-decoration:underline}
+.auth-page-card .auth-tabs{margin-top:4px}

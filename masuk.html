@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masuk Warga | Kecamatan Lumajang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body class="login-body">
+  <div class="login-page">
+    <div class="login-art">
+      <div class="brand login-brand">
+        <div class="brand-symbol">L</div>
+        <div><strong>Kecamatan Lumajang</strong><span>Kabupaten Lumajang</span></div>
+      </div>
+      <div class="login-art-content">
+        <span class="eyebrow light">Portal warga</span>
+        <h1>Masuk dulu, lalu urus layanan kecamatan dari satu tempat.</h1>
+        <p>Dengan akun warga, laporan Anda tersimpan, antrean kunjungan bisa dijadwalkan, dan formulir terisi otomatis.</p>
+      </div>
+      <div class="login-orbit orbit-one"></div>
+      <div class="login-orbit orbit-two"></div>
+    </div>
+
+    <div class="login-panel">
+      <div class="login-card auth-page-card">
+        <h2 id="authTitle">Akun warga</h2>
+        <p class="auth-lead">Masuk atau buat akun untuk membuka portal.</p>
+
+        <div class="auth-tabs" id="authTabs" role="tablist">
+          <button type="button" role="tab" data-view="login" class="active" aria-selected="true">Masuk</button>
+          <button type="button" role="tab" data-view="register" aria-selected="false">Daftar</button>
+        </div>
+
+        <form id="loginUserForm" class="auth-view" data-view="login" novalidate>
+          <label>Email<input id="loginEmail" type="email" required autocomplete="email" placeholder="nama@email.com"></label>
+          <label>Password
+            <div class="pw-wrap"><input id="loginPw" type="password" required autocomplete="current-password" placeholder="Masukkan password"><button type="button" class="pw-toggle">Lihat</button></div>
+          </label>
+          <label class="auth-check"><input id="loginRemember" type="checkbox"><span>Ingat saya di perangkat ini</span></label>
+          <div id="loginUserMsg" class="auth-msg" role="status" aria-live="polite"></div>
+          <button class="btn btn-primary full" type="submit">Masuk</button>
+          <div class="auth-links">
+            <button type="button" class="auth-link" data-view="forgot">Lupa password?</button>
+            <button type="button" class="auth-link" data-view="register">Belum punya akun? Daftar</button>
+          </div>
+        </form>
+
+        <form id="registerForm" class="auth-view hidden" data-view="register" novalidate>
+          <label>Nama lengkap<input id="regName" required autocomplete="name" placeholder="Sesuai identitas"></label>
+          <label>Email<input id="regEmail" type="email" required autocomplete="email" placeholder="nama@email.com"></label>
+          <label>No. WhatsApp<input id="regPhone" type="tel" required autocomplete="tel" placeholder="08xxxxxxxxxx"></label>
+          <label>Password
+            <div class="pw-wrap"><input id="regPw" type="password" required autocomplete="new-password" placeholder="Buat password"><button type="button" class="pw-toggle">Lihat</button></div>
+            <span class="auth-hint">Minimal 8 karakter, memuat huruf dan angka.</span>
+          </label>
+          <label>Ulangi password<input id="regPw2" type="password" required autocomplete="new-password" placeholder="Ketik ulang password"></label>
+          <div id="registerMsg" class="auth-msg" role="status" aria-live="polite"></div>
+          <button class="btn btn-primary full" type="submit">Buat akun</button>
+          <div class="auth-links"><button type="button" class="auth-link" data-view="login">Sudah punya akun? Masuk</button></div>
+        </form>
+
+        <form id="forgotForm" class="auth-view hidden" data-view="forgot" novalidate>
+          <h4>Atur ulang password</h4>
+          <p class="auth-lead">Masukkan email akun Anda. Kami akan membuat kode verifikasi 6 digit.</p>
+          <label>Email<input id="forgotEmail" type="email" required autocomplete="email" placeholder="nama@email.com"></label>
+          <div id="forgotMsg" class="auth-msg" role="status" aria-live="polite"></div>
+          <button class="btn btn-primary full" type="submit">Kirim kode</button>
+          <div class="auth-links"><button type="button" class="auth-link" data-view="login">Kembali ke halaman masuk</button></div>
+        </form>
+
+        <form id="resetForm" class="auth-view hidden" data-view="reset" novalidate>
+          <h4>Masukkan kode dan password baru</h4>
+          <div id="resetDemoCode" class="auth-demo hidden"></div>
+          <label>Kode verifikasi<input id="resetCode" inputmode="numeric" maxlength="6" required autocomplete="one-time-code" placeholder="6 digit"></label>
+          <label>Password baru
+            <div class="pw-wrap"><input id="resetPw" type="password" required autocomplete="new-password" placeholder="Password baru"><button type="button" class="pw-toggle">Lihat</button></div>
+          </label>
+          <label>Ulangi password baru<input id="resetPw2" type="password" required autocomplete="new-password" placeholder="Ketik ulang"></label>
+          <div id="resetMsg" class="auth-msg" role="status" aria-live="polite"></div>
+          <button class="btn btn-primary full" type="submit">Simpan password baru</button>
+          <div class="auth-links"><button type="button" class="auth-link" data-view="forgot">Minta kode baru</button></div>
+        </form>
+
+        <small class="auth-note">Akun ini simulasi di browser (localStorage). Produksi memerlukan backend, database, dan email resmi.</small>
+        <a class="auth-staff" href="login.html">Petugas kecamatan? Login admin</a>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/auth-core.js"></script>
+  <script src="assets/js/auth-page.js"></script>
+</body>
+</html>

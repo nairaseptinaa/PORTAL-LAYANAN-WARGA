@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin | Kecamatan Lumajang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <a href="index.html" class="brand admin-logo">
+        <div class="brand-symbol">L</div>
+        <div><strong>Admin Lumajang</strong><span>Portal Kecamatan</span></div>
+      </a>
+      <nav>
+        <button class="admin-menu active" data-tab="dashboard">▦ <span>Dashboard</span></button>
+        <button class="admin-menu" data-tab="reports">⚠ <span>Laporan Warga</span></button>
+        <button class="admin-menu" data-tab="news">◫ <span>Kelola Berita</span></button>
+      </nav>
+      <div class="sidebar-foot">
+        <a href="index.html">← Lihat website</a>
+        <button id="logoutBtn">Keluar</button>
+      </div>
+    </aside>
+
+    <main class="admin-content">
+      <header class="admin-top">
+        <div>
+          <span class="eyebrow">Panel admin</span>
+          <h1 id="adminTitle">Dashboard</h1>
+        </div>
+        <div class="admin-profile">
+          <div class="avatar">A</div>
+          <div><strong>Administrator</strong><span>Aktif</span></div>
+        </div>
+      </header>
+
+      <section id="tab-dashboard" class="admin-tab active">
+        <div class="admin-stats">
+          <div><span>Total laporan</span><strong id="statTotal">0</strong><small>Semua tiket</small></div>
+          <div><span>Baru</span><strong id="statNew">0</strong><small>Belum ditindaklanjuti</small></div>
+          <div><span>Diproses</span><strong id="statProcess">0</strong><small>Sedang ditangani</small></div>
+          <div><span>Selesai</span><strong id="statDone">0</strong><small>Sudah selesai</small></div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-head">
+            <div><span class="eyebrow">Aktivitas</span><h2>Laporan terbaru</h2></div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Tiket</th><th>Kategori</th><th>Lokasi</th><th>Urgensi</th><th>Status</th></tr></thead>
+              <tbody id="latestReportsBody"></tbody>
+            </table>
+          </div>
+          <div class="pagination-bar">
+            <div class="page-size-control">
+              <span>Tampilkan</span>
+              <select id="dashboardPageSize">
+                <option value="5" selected>5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="all">Semua</option>
+              </select>
+              <span>data</span>
+            </div>
+            <div class="pagination-info" id="dashboardPageInfo">0–0 dari 0 data</div>
+            <div class="pagination-nav">
+              <button id="dashboardPrevBtn" type="button" aria-label="Halaman sebelumnya">‹</button>
+              <span id="dashboardPageNumber">1 / 1</span>
+              <button id="dashboardNextBtn" type="button" aria-label="Halaman berikutnya">›</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-reports" class="admin-tab">
+        <div class="admin-card">
+          <div class="admin-card-head split report-head">
+            <div><span class="eyebrow">Laporan warga</span><h2>Manajemen laporan</h2></div>
+            <div class="admin-filter">
+              <input id="reportSearch" placeholder="Cari laporan...">
+              <select id="statusFilter">
+                <option value="semua">Semua status</option>
+                <option>Baru</option>
+                <option>Diproses</option>
+                <option>Selesai</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="report-export-bar">
+            <div class="export-intro">
+              <span class="export-icon">⇩</span>
+              <div>
+                <strong>Ekspor & bagikan data</strong>
+                <small>File mengikuti pencarian dan filter status yang sedang aktif.</small>
+              </div>
+            </div>
+            <div class="export-actions">
+              <button id="exportExcelBtn" type="button" class="export-btn excel"><span>XLS</span> Excel</button>
+              <button id="exportCsvBtn" type="button" class="export-btn csv"><span>CSV</span> CSV</button>
+              <button id="printReportBtn" type="button" class="export-btn print"><span>PDF</span> Cetak / PDF</button>
+              <button id="shareReportBtn" type="button" class="export-btn share"><span>↗</span> Bagikan</button>
+            </div>
+          </div>
+
+          <div class="export-summary" id="exportSummary">
+            <span><b id="filteredCount">0</b> data ditampilkan</span>
+            <span>Baru <b id="filteredNew">0</b></span>
+            <span>Diproses <b id="filteredProcess">0</b></span>
+            <span>Selesai <b id="filteredDone">0</b></span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Tiket</th><th>Pelapor</th><th>Kategori</th><th>Lokasi</th><th>Urgensi</th><th>Status</th><th>Aksi</th></tr></thead>
+              <tbody id="reportsBody"></tbody>
+            </table>
+          </div>
+          <div class="pagination-bar">
+            <div class="page-size-control">
+              <span>Tampilkan</span>
+              <select id="reportsPageSize">
+                <option value="5" selected>5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="all">Semua</option>
+              </select>
+              <span>data</span>
+            </div>
+            <div class="pagination-info" id="reportsPageInfo">0–0 dari 0 data</div>
+            <div class="pagination-nav">
+              <button id="reportsPrevBtn" type="button" aria-label="Halaman sebelumnya">‹</button>
+              <span id="reportsPageNumber">1 / 1</span>
+              <button id="reportsNextBtn" type="button" aria-label="Halaman berikutnya">›</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-news" class="admin-tab">
+        <div class="admin-news-layout">
+          <div class="admin-card">
+            <div class="admin-card-head"><div><span class="eyebrow">Publikasi</span><h2>Tambah berita</h2></div></div>
+            <form id="newsForm" class="admin-form">
+              <input type="hidden" id="editingNewsId">
+              <label>Judul<input id="newsTitle" required placeholder="Judul berita"></label>
+              <label>Kategori
+                <select id="newsCategory">
+                  <option value="pelayanan">Pelayanan</option>
+                  <option value="kegiatan">Kegiatan</option>
+                  <option value="pengumuman">Pengumuman</option>
+                </select>
+              </label>
+              <label>Ringkasan<textarea id="newsExcerpt" required rows="6" placeholder="Ringkasan berita"></textarea></label>
+
+              <div class="media-upload-grid">
+                <label class="upload-box">
+                  <span class="upload-icon">IMG</span>
+                  <strong>Gambar berita</strong>
+                  <small>JPG, PNG, WEBP. Maksimal 1,5 MB.</small>
+                  <input id="newsImage" type="file" accept="image/png,image/jpeg,image/webp">
+                </label>
+                <label class="upload-box">
+                  <span class="upload-icon doc">DOC</span>
+                  <strong>Dokumen lampiran</strong>
+                  <small>PDF/DOC/DOCX. Maksimal 1,5 MB.</small>
+                  <input id="newsDocument" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                </label>
+              </div>
+
+              <div id="mediaPreview" class="media-preview hidden"></div>
+
+              <div class="form-action-row">
+                <button class="btn btn-primary" id="newsSubmitBtn" type="submit">Publikasikan</button>
+                <button class="btn btn-ghost hidden" id="cancelEditBtn" type="button">Batal Edit</button>
+              </div>
+              <small class="upload-note">Pada versi demo, file kecil disimpan di browser. Website produksi sebaiknya menyimpan file di server atau cloud storage.</small>
+            </form>
+          </div>
+          <div class="admin-card">
+            <div class="admin-card-head"><div><span class="eyebrow">Konten</span><h2>Berita tersimpan</h2></div></div>
+            <div id="adminNewsList" class="admin-news-list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="reportModal" class="modal hidden">
+    <div class="modal-card">
+      <button id="reportModalClose" class="modal-close">×</button>
+      <span class="eyebrow">Detail laporan</span>
+      <h3>Informasi tiket</h3>
+      <div id="reportDetail"></div>
+    </div>
+  </div>
+
+  <div id="confirmModal" class="modal hidden">
+    <div class="modal-card confirm-card">
+      <div class="confirm-icon">!</div>
+      <span class="eyebrow">Konfirmasi tindakan</span>
+      <h3 id="confirmTitle">Konfirmasi</h3>
+      <p id="confirmMessage">Apakah Anda yakin?</p>
+      <div class="confirm-actions">
+        <button id="confirmCancel" class="btn btn-ghost" type="button">Batal</button>
+        <button id="confirmProceed" class="btn btn-primary" type="button">Lanjutkan</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
